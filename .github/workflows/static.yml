@@ -28,10 +28,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Replace string in file
-        run: sed -i 's/\/modelos\//\/HandsOn2023\/modelos\//' ./public/modelos/metadados.json
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Replace string in file
+        run: sed -i 's/\/modelos\//\/HandsOn2023\/modelos\//' ./public/modelos/metadados.json
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
