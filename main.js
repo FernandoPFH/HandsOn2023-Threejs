@@ -248,20 +248,6 @@ function vrEnd() {
 
 import { sceneCreator } from './scripts/vr_scene_creator';
 
-// var geometry = new THREE.CubeGeometry( 250, 250, 250 );
-// var cubeMaterials = [
-//     new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load( "./skybox/nightsky_ft.png?url" ), side: THREE.DoubleSide }), //front side
-//     new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load( '/skybox/nightsky_bk.png?url' ), side: THREE.DoubleSide }), //back side
-//     new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load( '/skybox/nightsky_up.png?url' ), side: THREE.DoubleSide }), //up side
-//     new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load( '/skybox/nightsky_dn.png?url' ), side: THREE.DoubleSide }), //down side
-//     new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load( '/skybox/nightsky_rt.png?url' ), side: THREE.DoubleSide }), //right side
-//     new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load( '/skybox/nightsky_lf.png?url' ), side: THREE.DoubleSide }) //left side
-// ];
-
-// var cubeMaterial = new THREE.MeshFaceMaterial( cubeMaterials );
-// var cube = new THREE.Mesh( geometry, cubeMaterial );
-// scene.add( cube );
-
 vrButton.addEventListener("click", () => {
     funcConfig = vrEnd;
 

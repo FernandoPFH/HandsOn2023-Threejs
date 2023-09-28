@@ -37,6 +37,12 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm install
+      - name: Replace string in file
+        uses: MathieuSoysal/replace-string-in-file@v1.0.0
+        with:
+          file: pom.xml
+          old-string: /modelos/
+          new-string: /HandsOn2023/modelos/
       - name: Build
         run: npm run build
       - name: Setup Pages
