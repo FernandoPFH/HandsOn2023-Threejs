@@ -86,16 +86,11 @@ let sessionXR = null;
 let funcConfig = null;
 let firstConfig = true;
 
-console.log(modelosDisplay);
-
 function animate() {
     // resizeCanvasToDisplaySize();
 
     requestAnimationFrame( animate );
     renderer.setAnimationLoop(() => {
-
-        // console.log(sessionXR);
-
         if (sessionXR == null) {
             sessionXR = renderer.xr.getSession();
         }
@@ -270,7 +265,7 @@ vrButton.addEventListener("click", () => {
 
         controller.getWorldDirection(vector);
 
-        let posicaoFinal = posicaoInicial.add(vector.multiplyScalar(-.5));
+        let posicaoFinal = posicaoInicial.add(vector.multiplyScalar(-.25));
 
         modeloXR.position.set(posicaoFinal.x,posicaoFinal.y,posicaoFinal.z);
 
