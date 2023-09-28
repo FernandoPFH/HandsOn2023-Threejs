@@ -7,5 +7,6 @@ export default defineConfig({
             cert: "cert.pem"
         },
         port: 443
-    }
+    },
+    base: "/HandsOn2023/"
 })
