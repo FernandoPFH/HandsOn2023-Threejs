@@ -1,0 +1,70 @@
+html {
+    --background: #034159;
+    --primary: #8050d7;
+    --secondary: #1a4002;
+    --accent: #cdb518;
+
+    height: 100%;
+    margin: 0;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-color: #0e1316;
+    overflow: hidden;
+    background-image: url("https://pa1.aminoapps.com/8697/b7c5e5dec9a16f24dcbd1de126133680255103aar1-320-320_00.gif");
+    background-size: 100%;
+    background-repeat: repeat;
+    background-position: center;
+}
+
+#canvas {
+    height: 100%;
+}
+
+canvas {
+    height: 100%;
+}
+
+h1 {
+    color: var(--primary);
+    font-size: 70px;
+    margin-bottom: 0px;
+}
+
+h2 {
+    font-size: 23px;
+    color: var(--primary);
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+p {
+    color: white;
+    margin: 0px;
+    text-align: center;
+}
+
+button {
+    background-color: var(--primary);
+    color: var(--accent);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+#modelos {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    gap: 1%;
+}

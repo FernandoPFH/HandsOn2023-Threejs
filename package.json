@@ -1,0 +1,21 @@
+{
+  "name": "metaverso_handson",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.156.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "vite": "^4.4.9"
+  }
+}
