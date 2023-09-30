@@ -4,6 +4,8 @@ import * as THREE from 'three';
 
 import models_json_link from '/modelos/metadados.json?url';
 
+import { customizacao } from '/scripts/customizar';
+
 class ModelosDisplay {
     constructor() {
         this.posicoesDisplay = [
@@ -46,19 +48,40 @@ class ModelosDisplay {
 
         let order_modelos = []
         
+        this.criarModeloCustomizado(order_modelos);
+        
         for (let key in models_data) {
             order_modelos.push(key)
             loadModel(key,(gltfScene)=>{this.processarModelo(gltfScene,key,()=>{this.salvarModelos(order_modelos,this.setarModelosNaPosicoesIniciais)})});
+        }
+
+    }
+
+    criarModeloCustomizado(order_modelos) {
+        let name = "customizado";
+
+        let modelo_custom = customizacao();
+
+        if (modelo_custom != null) {
+            order_modelos.push(name);
+
+            let box = new THREE.Box3().setFromObject( modelo_custom );
+            box.getCenter( modelo_custom.position ); // this re-sets the mesh position
+            modelo_custom.position.multiplyScalar( - 1 );
+            let pivot = new THREE.Group();
+            pivot.add( modelo_custom );
+    
+            this.modelos[name] = pivot;
         }
     }
 
     processarModelo(gltfScene,name,callback=null) {
         for (let child of gltfScene.scene.children) {
             if (child.isObject3D) {
-                var box = new THREE.Box3().setFromObject( child );
+                let box = new THREE.Box3().setFromObject( child );
                 box.getCenter( child.position ); // this re-sets the mesh position
                 child.position.multiplyScalar( - 1 );
-                var pivot = new THREE.Group();
+                let pivot = new THREE.Group();
                 pivot.add( child );
 
                 this.modelos[name] = pivot;
@@ -142,6 +165,12 @@ class ModelosDisplay {
 
         let modelo = this.modelos[indexModelLeft]["model"];
 
+        scene.add(modelo);
+
+        modelo.position.copy(this.posicoesDisplay[0]);
+
+        modelo.rotation.y = this.rotacoesDisplay[0].y;
+
         this.modelsInDisplay.unshift(new ModeloDisplay(0,null,1,modelo,this.posicoesDisplay,this.rotacoesDisplay,this.modelsInDisplay,indexModelLeft,this));
     }
 
@@ -157,6 +186,12 @@ class ModelosDisplay {
         let indexModelRight = this.getIndexRight(modelIndex);
 
         let modelo = this.modelos[indexModelRight]["model"];
+
+        scene.add(modelo);
+
+        modelo.position.copy(this.posicoesDisplay[this.posicoesDisplay.length-1]);
+
+        modelo.rotation.y = this.rotacoesDisplay[this.posicoesDisplay.length-1].y;
 
         this.modelsInDisplay.push(new ModeloDisplay(this.posicoesDisplay.length-1,this.posicoesDisplay.length-2,null,modelo,this.posicoesDisplay,this.rotacoesDisplay,this.modelsInDisplay,indexModelRight,this));
     }
