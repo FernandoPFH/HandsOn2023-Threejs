@@ -280,3 +280,24 @@ vrButton.innerText = (vrButton.innerText == "AR NOT SUPPORTED")?"AR Não Suporta
 vrButton.style = "";
 
 document.querySelector("#buttonsXR").appendChild( vrButton );
+
+function iOS() {
+    return [
+        'iPad Simulator',
+        'iPhone Simulator',
+        'iPod Simulator',
+        'iPad',
+        'iPhone',
+        'iPod'
+    ].includes(navigator.userAgent)
+    // iPad on iOS 13 detection
+    || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+}
+
+navigator.xr.isSessionSupported( 'immersive-ar' ).then((supported) => {
+    if (supported && iOS()) {
+        if(window.confirm(`Você precisa de outro navegador para utilizar a Realidade Virtual! \nClique em OK para ser redirecionado a loja`)){
+            location.assign("https://apps.apple.com/br/app/webxr-viewer/id1295998056")
+        }
+    }
+}); 
