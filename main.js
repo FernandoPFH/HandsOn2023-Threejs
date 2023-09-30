@@ -294,10 +294,8 @@ function iOS() {
     || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
 }
 
-navigator.xr.isSessionSupported( 'immersive-ar' ).then((supported) => {
-    if (supported && iOS()) {
-        if(window.confirm(`Você precisa de outro navegador para utilizar a Realidade Virtual! \nClique em OK para ser redirecionado a loja`)){
-            location.assign("https://apps.apple.com/br/app/webxr-viewer/id1295998056")
-        }
+if (iOS()) {
+    if(window.confirm(`Você precisa de outro navegador para utilizar a Realidade Virtual! \nClique em OK para ser redirecionado a loja`)){
+        location.assign("https://apps.apple.com/br/app/webxr-viewer/id1295998056")
     }
-}); 
+}
