@@ -8,5 +8,5 @@ export default defineConfig({
         },
         port: 443
     },
-    base: "/HandsOn2023/"
+    base: "/HandsOn2023-Threejs/"
 })
